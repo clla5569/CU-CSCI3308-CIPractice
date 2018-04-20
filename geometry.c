@@ -5,7 +5,7 @@
  * Summer 2014
  *
  * This file contains a simple geomtery functions.
- *
+ * idk wtf im doing
  */
 
 #include <stdlib.h>
