@@ -35,6 +35,25 @@ double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b){
     return sqrt(pow((a->x - b->x), 2) + pow((a->y - b->y), 2));
 
 }
+double coord_2d_area_triangle(const coord_2d_t* a,
+                const coord_2d_t* b, const coord_2d_t* c) {
+
+    /* Input Checks */
+    if(!a){
+        DEBUG(__FILE__, __LINE__, __func__, "'a' must not be NULL");
+        return NAN;
+    }
+    if(!b){
+        DEBUG(__FILE__, __LINE__, __func__, "'b' must not be NULL");
+        return NAN;
+    }
+
+    if(!c){
+        DEBUG(__FILE__, __LINE__, __func__, "'c' must not be NULL");
+        return NAN;
+    }
+    return fabs((a->x * (b->y-c->y) + b->x*(c->y-a->y) + c->x * (a->y-b->y))/2.0);
+}
 
 bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
 
@@ -45,7 +64,6 @@ bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
     else{
         return false;
     }
-
 }
 
 void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b){
